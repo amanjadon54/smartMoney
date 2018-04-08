@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="ex">
+    <page>/ex.jspx</page>
+  </view>
+  <managed-bean id="__24">
+    <managed-bean-name id="__25">UserIdLogin</managed-bean-name>
+    <managed-bean-class id="__23">LoginUserID</managed-bean-class>
+    <managed-bean-scope id="__22">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__11">
+    <managed-bean-name id="__12">testBinding</managed-bean-name>
+    <managed-bean-class id="__13">TestLogin</managed-bean-class>
+    <managed-bean-scope id="__26">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__28">
+    <managed-bean-name id="__29">loginPageBean</managed-bean-name>
+    <managed-bean-class id="__30">LoginPageClass</managed-bean-class>
+    <managed-bean-scope id="__27">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__16">
+    <managed-bean-name id="__17">PasswordResetBean</managed-bean-name>
+    <managed-bean-class id="__34">PasswordReset</managed-bean-class>
+    <managed-bean-scope id="__18">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__37">
+    <managed-bean-name id="__35">PasswordResetBeanNew</managed-bean-name>
+    <managed-bean-class id="__38">PasswordResetBeanNew</managed-bean-class>
+    <managed-bean-scope id="__36">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__1">
+    <managed-bean-name id="__3">testNotifyBean</managed-bean-name>
+    <managed-bean-class id="__2">TestNotifyBean</managed-bean-class>
+    <managed-bean-scope id="__4">request</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

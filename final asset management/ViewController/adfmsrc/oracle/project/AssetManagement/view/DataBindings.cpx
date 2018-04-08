@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.56.60" id="DataBindings" SeparateXMLFiles="false"
+             Package="oracle.project.AssetManagement.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+    <factory nameSpace="http://xmlns.oracle.com/adfm/dvt"
+             className="oracle.adfinternal.view.faces.dvt.model.binding.FacesBindingFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/LoginPage.jspx"
+          usageId="oracle_project_AssetManagement_view_LoginPagePageDef"/>
+    <page path="/DashBoardPage.jspx"
+          usageId="oracle_project_AssetManagement_view_DashBoardPagePageDef"/>
+    <page path="/createTransactionPage.jspx"
+          usageId="oracle_project_AssetManagement_view_createTransactionPagePageDef"/>
+    <page path="/createPage.jspx"
+          usageId="oracle_project_AssetManagement_view_createPagePageDef"/>
+    <page path="/forgotPasswordPage.jspx"
+          usageId="oracle_project_AssetManagement_view_forgotPasswordPagePageDef"/>
+    <page path="/testDisplay.jspx"
+          usageId="oracle_project_AssetManagement_view_testDisplayPageDef"/>
+    <page path="/view1.jsff"
+          usageId="oracle_project_AssetManagement_view_view1PageDef"/>
+    <page path="/view2.jsff"
+          usageId="oracle_project_AssetManagement_view_view2PageDef"/>
+    <page path="/ex.jspx"
+          usageId="oracle_project_AssetManagement_view_exPageDef"/>
+    <page path="/view3.jsff"
+          usageId="oracle_project_AssetManagement_view_view3PageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="oracle_project_AssetManagement_view_LoginPagePageDef"
+          path="oracle.project.AssetManagement.view.pageDefs.LoginPagePageDef"/>
+    <page id="oracle_project_AssetManagement_view_DashBoardPagePageDef"
+          path="oracle.project.AssetManagement.view.pageDefs.DashBoardPagePageDef"/>
+    <page id="oracle_project_AssetManagement_view_view2PageDef"
+          path="oracle.project.AssetManagement.view.pageDefs.view2PageDef"/>
+    <page id="oracle_project_AssetManagement_view_view1PageDef"
+          path="oracle.project.AssetManagement.view.pageDefs.view1PageDef"/>
+    <page id="oracle_project_AssetManagement_view_createTransactionPagePageDef"
+          path="oracle.project.AssetManagement.view.pageDefs.createTransactionPagePageDef"/>
+    <page id="oracle_project_AssetManagement_view_createPagePageDef"
+          path="oracle.project.AssetManagement.view.pageDefs.createPagePageDef"/>
+    <page id="oracle_project_AssetManagement_view_forgotPasswordPagePageDef"
+          path="oracle.project.AssetManagement.view.pageDefs.forgotPasswordPagePageDef"/>
+    <page id="oracle_project_AssetManagement_view_testDisplayPageDef"
+          path="oracle.project.AssetManagement.view.pageDefs.testDisplayPageDef"/>
+    <page id="oracle_project_AssetManagement_view_exPageDef"
+          path="oracle.project.AssetManagement.view.pageDefs.exPageDef"/>
+    <page id="oracle_project_AssetManagement_view_view3PageDef"
+          path="oracle.project.AssetManagement.view.pageDefs.view3PageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="Test" path="oracle.project.AssetManagement.Test"/>
+    <BC4JDataControl id="AssetManagementAM1DataControl"
+                     Package="oracle.project.AssetManagement.uiview"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="AssetManagementAM1Local"
+                     syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

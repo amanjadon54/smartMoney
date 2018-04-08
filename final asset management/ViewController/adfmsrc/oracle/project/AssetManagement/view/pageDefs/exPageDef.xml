@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.56.60" id="exPageDef"
+                Package="oracle.project.AssetManagement.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="firstBoundedTaskFlow1"
+              taskFlowId="/WEB-INF/firstBoundedTaskFlow.xml#firstBoundedTaskFlow"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <iterator Binds="MonthlyAnalyticsNewV1" RangeSize="25"
+              DataControl="AssetManagementAM1DataControl"
+              id="MonthlyAnalyticsNewV1Iterator"/>
+    <iterator Binds="MonthsOFYear1" RangeSize="25"
+              DataControl="AssetManagementAM1DataControl"
+              id="MonthsOFYear1Iterator"/>
+    <iterator Binds="YearlyChartV1" RangeSize="25"
+              DataControl="AssetManagementAM1DataControl"
+              id="YearlyChartV1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="MonthlyAnalyticsNewV1Iterator"
+          id="MonthlyAnalyticsNewV1">
+      <nodeDefinition DefName="oracle.project.AssetManagement.uiview.MonthlyAnalyticsNewVVO"
+                      Name="MonthlyAnalyticsNewV10">
+        <AttrNames>
+          <Item Value="TransactionId"/>
+          <Item Value="TransactionType"/>
+          <Item Value="Userid"/>
+          <Item Value="DueDate"/>
+          <Item Value="LentItem"/>
+          <Item Value="CreationDate"/>
+          <Item Value="Touser"/>
+          <Item Value="Quantity"/>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="MonthsOFYear1Iterator" ListOperMode="navigation"
+          ListIter="MonthsOFYear1Iterator" id="MonthsOFYear1"
+          DTSupportsMRU="true">
+      <AttrNames>
+        <Item Value="Month"/>
+      </AttrNames>
+    </list>
+    <attributeValues IterBinding="YearlyChartV1Iterator" id="Lent">
+      <AttrNames>
+        <Item Value="Lent"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="YearlyChartV1Iterator" id="Owe">
+      <AttrNames>
+        <Item Value="Owe"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

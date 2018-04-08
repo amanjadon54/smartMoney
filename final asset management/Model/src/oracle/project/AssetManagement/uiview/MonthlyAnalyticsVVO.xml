@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MonthlyAnalyticsVVO"
+  Version="11.1.1.56.60"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  ComponentClass="oracle.project.AssetManagement.uiview.MonthlyAnalyticsVVOImpl"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  RowClass="oracle.project.AssetManagement.uiview.MonthlyAnalyticsVVORowImpl"
+  DefClass="oracle.project.AssetManagement.uiview.MonthlyAnalyticsVVODefImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Def|Coll|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="p_user"
+    Kind="viewcriteria"
+    Type="java.lang.String"
+    DefaultValue="amanj"/>
+  <SQLQuery>
+    <![CDATA[select userid,sum(lent_item)
+from assetmanagement_transaction where transaction_type='money' and extract(month from creation_date)=extract(month from sysdate) group by userid]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="Userid"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="USERID"
+    Expression="USERID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SumLentItem"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="SUM(LENT_ITEM)"
+    Expression="SUM(LENT_ITEM)"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SumQuantity"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="SUM(QUANTITY)"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewCriteria
+    Name="MonthlyAnalyticsVVOCriteria"
+    ViewObjectName="oracle.project.AssetManagement.uiview.MonthlyAnalyticsVVO"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="vcrow30"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Userid"
+        ViewAttribute="Userid"
+        Operator="="
+        Conjunction="AND"
+        Value=":p_user"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+</ViewObject>

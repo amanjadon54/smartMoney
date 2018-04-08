@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TransactionVL"
+  Version="11.1.1.56.60">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewLinkDefEnd
+    Name="UserUpdatable"
+    Cardinality="1"
+    Owner="oracle.project.AssetManagement.uiview.UserUpdatableVO"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_finderName" Value="UserUpdatable"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="oracle.project.AssetManagement.uiview.UserUpdatableVO.Userid"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="Transaction"
+    Cardinality="-1"
+    Owner="oracle.project.AssetManagement.uiview.TransactionVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="Transaction"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.project.AssetManagement.uiview.TransactionVO.Userid"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

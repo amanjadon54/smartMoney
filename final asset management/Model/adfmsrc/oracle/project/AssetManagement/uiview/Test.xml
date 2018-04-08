@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.56.60"
+          id="Test" Package="oracle.project.AssetManagement.uiview"
+          BeanClass="oracle.project.AssetManagement.uiview.Test"
+          isJavaBased="true">
+  <Attribute Name="userId" Type="java.lang.String"/>
+  <Attribute Name="password" Type="java.lang.String"/>
+  <MethodAccessor IsCollection="false" Type="void" id="validate"
+                  ReturnNodeName="Return"/>
+  <ConstructorMethod IsCollection="true"
+                     Type="oracle.project.AssetManagement.uiview.Test"
+                     BeanClass="oracle.project.AssetManagement.uiview.Test"
+                     id="Test"/>
+</JavaBean>

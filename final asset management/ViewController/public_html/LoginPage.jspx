@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:tr="http://myfaces.apache.org/trinidad">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" inlineStyle="background-color:Green;">
+    <af:resource type="css">
+    .x4z{
+    font-size: 15px;
+    color: yellow;
+    }
+    </af:resource>
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelSplitter id="ps1" splitterPosition="478">
+          <f:facet name="first">
+            <af:panelFormLayout id="pfl1">
+              <p>
+                <h:graphicImage url="/smart_money_sv_logo.gif"
+                                alt="Split your transactions" height="276"
+                                width="409" id="gi1"/><af:inputText label="User" id="it1"
+                              binding="#{loginPageBean.userId}"
+                              required="true" inlineStyle="background-color:Green; color:Orange; font-size:large;"
+                                                                    styleClass="AFPostalCodeFieldTextMarker">
+                  <p>
+                     
+                  </p>
+                  <p>
+                     
+                  </p>
+                </af:inputText><af:inputText label="Password"
+                                                               id="it2"
+                                                             binding="#{loginPageBean.password}"
+                                                             required="true"
+                                                             secret="true"
+                                             inlineStyle="background-color:Green; color:Silver; font-size:medium; text-decoration:blink;"/><af:outputLabel value="passwordOutputLabel"
+                                                                                            id="ol2"
+                                                                                            binding="#{loginPageBean.passOutputLabel}"
+                                                                                            visible="false"
+                                                                                            inlineStyle="color:Red;"/><h:commandButton value="Login"
+                                                                                                                                       id="cb1"
+                                                                                                                                       actionListener="#{loginPageBean.validate}"
+                                                                                                                                       action="#{loginPageBean.controlFlow}"
+                                                                                                                                       style="background-color:Background; color:White;">
+                  <af:setPropertyListener from="#{loginPageBean.userId.value}"
+                                          to="#{pageFlowScope.userName}"
+                                          type="action"/>
+                  <af:setPropertyListener from="#{loginPageBean.userId}"
+                                          to="#{pageFlowScope.userId}"
+                                          type="action"/>
+                  <af:setPropertyListener from="#{loginPageBean.securityQuestion.value}"
+                                          to="#{pageFlowScope.securityQuestion}"
+                                          type="action"/>
+                </h:commandButton><h:commandLink value="Forgot Password?"
+                                                                                                                                                                                             id="cl1"
+                                                                                                                                                                                             binding="#{loginPageBean.forgotPasswordLink}"
+                                                                                                                                                                                             disabled="true"
+                                                                                                                                                                                             action="forgot">
+                  <af:inputText label="question" id="it12"
+                                binding="#{loginPageBean.securityQuestion}"
+                                visible="false"/>
+                </h:commandLink><af:commandButton text="sendmail"
+                                                  id="cb2"
+                                                  actionListener="#{testNotifyBean.sendEmail}"/>
+              </p>
+            </af:panelFormLayout>
+          </f:facet>
+          <f:facet name="second">
+            <af:panelGroupLayout layout="scroll"
+                                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                                 id="pgl1">
+              <af:spacer width="10" height="10" id="s1"/>
+              <f:verbatim>
+                <strong style="color:Green; font-size:xx-large;">
+                  
+                    <font size="3">
+                      New to the application?
+                    </font>
+                  
+                  
+                    <font size="3">
+                      Join here!
+                    </font>
+                  </strong>
+              </f:verbatim>
+              <af:commandImageLink id="cil2" immediate="true" icon="/sign-up-button-png-33.png"
+                                   partialSubmit="true">
+                <af:showPopupBehavior popupId="createUser" triggerType="action"
+                                      align="afterEnd"/>
+              </af:commandImageLink>
+              <af:popup id="createUser"
+                        popupFetchListener="#{loginPageBean.createUserPopupFetchListener}">
+                <af:dialog id="d2" type="okCancel"
+                           dialogListener="#{loginPageBean.createUserDialogListener}"
+                           closeIconVisible="true">
+                  <af:panelFormLayout id="pfl2">
+                    <af:inputText value="#{bindings.Userid.inputValue}"
+                                  label="#{bindings.Userid.hints.label}"
+                                  required="#{bindings.Userid.hints.mandatory}"
+                                  columns="#{bindings.Userid.hints.displayWidth}"
+                                  maximumLength="#{bindings.Userid.hints.precision}"
+                                  shortDesc="#{bindings.Userid.hints.tooltip}"
+                                  id="it3">
+                      <f:validator binding="#{bindings.Userid.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Firstname.inputValue}"
+                                  label="#{bindings.Firstname.hints.label}"
+                                  required="#{bindings.Firstname.hints.mandatory}"
+                                  columns="#{bindings.Firstname.hints.displayWidth}"
+                                  maximumLength="#{bindings.Firstname.hints.precision}"
+                                  shortDesc="#{bindings.Firstname.hints.tooltip}"
+                                  id="it4">
+                      <f:validator binding="#{bindings.Firstname.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Lastname.inputValue}"
+                                  label="#{bindings.Lastname.hints.label}"
+                                  required="#{bindings.Lastname.hints.mandatory}"
+                                  columns="#{bindings.Lastname.hints.displayWidth}"
+                                  maximumLength="#{bindings.Lastname.hints.precision}"
+                                  shortDesc="#{bindings.Lastname.hints.tooltip}"
+                                  id="it7">
+                      <f:validator binding="#{bindings.Lastname.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Password.inputValue}"
+                                  label="#{bindings.Password.hints.label}"
+                                  required="#{bindings.Password.hints.mandatory}"
+                                  columns="#{bindings.Password.hints.displayWidth}"
+                                  maximumLength="#{bindings.Password.hints.precision}"
+                                  shortDesc="#{bindings.Password.hints.tooltip}"
+                                  id="it8">
+                      <f:validator binding="#{bindings.Password.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.ConfirmPassword.inputValue}"
+                                  label="#{bindings.ConfirmPassword.hints.label}"
+                                  required="#{bindings.ConfirmPassword.hints.mandatory}"
+                                  columns="#{bindings.ConfirmPassword.hints.displayWidth}"
+                                  maximumLength="#{bindings.ConfirmPassword.hints.precision}"
+                                  shortDesc="#{bindings.ConfirmPassword.hints.tooltip}"
+                                  id="it9">
+                      <f:validator binding="#{bindings.ConfirmPassword.validator}"/>
+                    </af:inputText>
+                    <af:selectOneChoice value="#{bindings.Question.inputValue}"
+                                        label="#{bindings.Question.label}"
+                                        required="#{bindings.Question.hints.mandatory}"
+                                        shortDesc="#{bindings.Question.hints.tooltip}"
+                                        id="soc1">
+                      <f:selectItems value="#{bindings.Question.items}"
+                                     id="si1"/>
+                    </af:selectOneChoice>
+                    <af:inputText value="#{bindings.Answer.inputValue}"
+                                  label="#{bindings.Answer.hints.label}"
+                                  required="#{bindings.Answer.hints.mandatory}"
+                                  columns="#{bindings.Answer.hints.displayWidth}"
+                                  maximumLength="#{bindings.Answer.hints.precision}"
+                                  shortDesc="#{bindings.Answer.hints.tooltip}"
+                                  id="it6">
+                      <f:validator binding="#{bindings.Answer.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Email.inputValue}"
+                                  label="#{bindings.Email.hints.label}"
+                                  required="#{bindings.Email.hints.mandatory}"
+                                  columns="#{bindings.Email.hints.displayWidth}"
+                                  maximumLength="#{bindings.Email.hints.precision}"
+                                  shortDesc="#{bindings.Email.hints.tooltip}"
+                                  id="it10">
+                      <f:validator binding="#{bindings.Email.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Phone.inputValue}"
+                                  label="#{bindings.Phone.hints.label}"
+                                  required="#{bindings.Phone.hints.mandatory}"
+                                  columns="#{bindings.Phone.hints.displayWidth}"
+                                  maximumLength="#{bindings.Phone.hints.precision}"
+                                  shortDesc="#{bindings.Phone.hints.tooltip}"
+                                  id="it11">
+                      <f:validator binding="#{bindings.Phone.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.Phone.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Address.inputValue}"
+                                  label="#{bindings.Address.hints.label}"
+                                  required="#{bindings.Address.hints.mandatory}"
+                                  columns="#{bindings.Address.hints.displayWidth}"
+                                  maximumLength="#{bindings.Address.hints.precision}"
+                                  shortDesc="#{bindings.Address.hints.tooltip}"
+                                  id="it5">
+                      <f:validator binding="#{bindings.Address.validator}"/>
+                    </af:inputText>
+                  </af:panelFormLayout>
+                </af:dialog>
+              </af:popup>
+              <h:graphicImage url="/main-qimg-525b00308de9911d9d9aa15dd3a7af20.png"
+                              height="500" width="800" id="gi2"/>
+            </af:panelGroupLayout>
+          </f:facet>
+        </af:panelSplitter>
+        <af:resource type="javascript">
+                    var registerDisableBackButton = function () {
+                        disableBackButton();
+                        window.onload = disableBackButton();
+                        window.onpageshow = function (event) {
+                            if (event.persisted) {
+                                disableBackButton()
+                            }
+                        }
+                        window.onunload = function () {
+                            void (0);
+                        }
+                    }
+
+                    var disableBackButton = function () {
+                        window.history.forward();
+                    }
+
+                    var onLoadEvent = function(event) {
+                        registerDisableBackButton();
+                    }
+                </af:resource>
+      </af:form>
+      <af:clientListener method="onLoadEvent" type="load"/>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:UserIdLogin-->
+</jsp:root>

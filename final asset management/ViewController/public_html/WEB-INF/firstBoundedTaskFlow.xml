@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="firstBoundedTaskFlow">
+    <default-activity id="__13">view1</default-activity>
+    <view id="view1">
+      <page id="__1">/view1.jsff</page>
+    </view>
+    <view id="view2">
+      <page id="__2">/view2.jsff</page>
+    </view>
+    <view id="view3">
+      <page>/view3.jsff</page>
+    </view>
+    <control-flow-rule id="__3">
+      <from-activity-id id="__4">view1</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome id="__7">go</from-outcome>
+        <to-activity-id id="__5">view2</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id id="__9">view2</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome id="__10">back</from-outcome>
+        <to-activity-id id="__12">view1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

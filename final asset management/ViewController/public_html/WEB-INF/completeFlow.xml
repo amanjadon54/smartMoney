@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="task-flow-definition">
+    <default-activity id="__6">LoginPage</default-activity>
+    <view id="LoginPage">
+      <page id="__1">/LoginPage.jspx</page>
+    </view>
+    <view id="DashBoardPage">
+      <page id="__2">/DashBoardPage.jspx</page>
+    </view>
+    <view id="forgotPasswordPage">
+      <page id="__3">/forgotPasswordPage.jspx</page>
+    </view>
+    <view id="createTransactionPage">
+      <page id="__4">/createTransactionPage.jspx</page>
+    </view>
+    <control-flow-rule id="__8">
+      <from-activity-id id="__9">DashBoardPage</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome id="__11">create</from-outcome>
+        <to-activity-id id="__12">createTransactionPage</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__18">
+        <from-outcome id="__20">back</from-outcome>
+        <to-activity-id id="__19">LoginPage</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__13">
+      <from-activity-id id="__14">createTransactionPage</from-activity-id>
+      <control-flow-case id="__17">
+        <from-outcome id="__15">back</from-outcome>
+        <to-activity-id id="__16">DashBoardPage</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__21">
+      <from-activity-id id="__22">LoginPage</from-activity-id>
+      <control-flow-case id="__24">
+        <from-outcome id="__25">forgot</from-outcome>
+        <to-activity-id id="__23">forgotPasswordPage</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__35">
+        <from-outcome id="__34">successful_login</from-outcome>
+        <to-activity-id id="__36">DashBoardPage</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__37">
+      <from-activity-id id="__38">forgotPasswordPage</from-activity-id>
+      <control-flow-case id="__41">
+        <from-outcome id="__40">resetPassword</from-outcome>
+        <to-activity-id id="__39">LoginPage</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

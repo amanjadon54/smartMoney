@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelSplitter id="ps1" splitterPosition="151">
+          <f:facet name="first">
+            <af:panelGroupLayout layout="scroll"
+                                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                                 id="pgl1">
+              <af:region value="#{bindings.firstBoundedTaskFlow1.regionModel}"
+                         id="r1"/>
+              <af:commandButton text="commandButton 1" id="cb1"
+                                actionListener="#{testNotifyBean.selectOneChoice}"/>
+              <af:selectOneChoice value="#{bindings.MonthsOFYear1.inputValue}"
+                                  label="#{bindings.MonthsOFYear1.label}"
+                                  required="#{bindings.MonthsOFYear1.hints.mandatory}"
+                                  shortDesc="#{bindings.MonthsOFYear1.hints.tooltip}"
+                                  id="soc1"
+                                  binding="#{testNotifyBean.selectedMonth}">
+                <f:selectItems value="#{bindings.MonthsOFYear1.items}"
+                               id="si1"/>
+              </af:selectOneChoice>
+              <af:panelFormLayout id="pfl1">
+                <af:inputText value="#{bindings.Lent.inputValue}"
+                              label="#{bindings.Lent.hints.label}"
+                              required="#{bindings.Lent.hints.mandatory}"
+                              columns="#{bindings.Lent.hints.displayWidth}"
+                              maximumLength="#{bindings.Lent.hints.precision}"
+                              shortDesc="#{bindings.Lent.hints.tooltip}"
+                              id="it2">
+                  <f:validator binding="#{bindings.Lent.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.Lent.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.Owe.inputValue}"
+                              label="#{bindings.Owe.hints.label}"
+                              required="#{bindings.Owe.hints.mandatory}"
+                              columns="#{bindings.Owe.hints.displayWidth}"
+                              maximumLength="#{bindings.Owe.hints.precision}"
+                              shortDesc="#{bindings.Owe.hints.tooltip}"
+                              id="it1">
+                  <f:validator binding="#{bindings.Owe.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.Owe.format}"/>
+                </af:inputText>
+              </af:panelFormLayout>
+            </af:panelGroupLayout>
+          </f:facet>
+          <f:facet name="second">
+            <af:table value="#{bindings.MonthlyAnalyticsNewV1.collectionModel}"
+                      var="row"
+                      rows="#{bindings.MonthlyAnalyticsNewV1.rangeSize}"
+                      emptyText="#{bindings.MonthlyAnalyticsNewV1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.MonthlyAnalyticsNewV1.rangeSize}"
+                      rowBandingInterval="0" id="t1">
+              <af:column sortProperty="TransactionId" sortable="false"
+                         headerText="#{bindings.MonthlyAnalyticsNewV1.hints.TransactionId.label}"
+                         id="c2">
+                <af:outputText value="#{row.TransactionId}" id="ot5"/>
+              </af:column>
+              <af:column sortProperty="TransactionType" sortable="false"
+                         headerText="#{bindings.MonthlyAnalyticsNewV1.hints.TransactionType.label}"
+                         id="c7">
+                <af:outputText value="#{row.TransactionType}" id="ot3"/>
+              </af:column>
+              <af:column sortProperty="Userid" sortable="false"
+                         headerText="#{bindings.MonthlyAnalyticsNewV1.hints.Userid.label}"
+                         id="c9">
+                <af:outputText value="#{row.Userid}" id="ot4"/>
+              </af:column>
+              <af:column sortProperty="DueDate" sortable="false"
+                         headerText="#{bindings.MonthlyAnalyticsNewV1.hints.DueDate.label}"
+                         id="c8">
+                <af:outputText value="#{row.DueDate}" id="ot7">
+                  <af:convertDateTime pattern="#{bindings.MonthlyAnalyticsNewV1.hints.DueDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="LentItem" sortable="false"
+                         headerText="#{bindings.MonthlyAnalyticsNewV1.hints.LentItem.label}"
+                         id="c1">
+                <af:outputText value="#{row.LentItem}" id="ot9"/>
+              </af:column>
+              <af:column sortProperty="CreationDate" sortable="false"
+                         headerText="#{bindings.MonthlyAnalyticsNewV1.hints.CreationDate.label}"
+                         id="c3">
+                <af:outputText value="#{row.CreationDate}" id="ot1">
+                  <af:convertDateTime pattern="#{bindings.MonthlyAnalyticsNewV1.hints.CreationDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="Touser" sortable="false"
+                         headerText="#{bindings.MonthlyAnalyticsNewV1.hints.Touser.label}"
+                         id="c5">
+                <af:outputText value="#{row.Touser}" id="ot8"/>
+              </af:column>
+              <af:column sortProperty="Quantity" sortable="false"
+                         headerText="#{bindings.MonthlyAnalyticsNewV1.hints.Quantity.label}"
+                         id="c4">
+                <af:outputText value="#{row.Quantity}" id="ot2"/>
+              </af:column>
+              <af:column sortProperty="Status" sortable="false"
+                         headerText="#{bindings.MonthlyAnalyticsNewV1.hints.Status.label}"
+                         id="c6">
+                <af:outputText value="#{row.Status}" id="ot6"/>
+              </af:column>
+            </af:table>
+          </f:facet>
+        </af:panelSplitter>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

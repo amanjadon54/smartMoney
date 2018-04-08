@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="YearlyChartVVO"
+  Version="11.1.1.56.60"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  RowClass="oracle.project.AssetManagement.uiview.YearlyChartVVORowImpl"
+  ComponentClass="oracle.project.AssetManagement.uiview.YearlyChartVVOImpl"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="p_user"
+    Kind="where"
+    Type="java.lang.String"
+    DefaultValue="amanj"/>
+  <SQLQuery>
+    <![CDATA[select userid,(select sum(lent_item) from ASSETMANAGEMENT_TRANSACTION where TRANSACTION_TYPE='money' and userid=:p_user and STATUS='open' and extract(year from creation_date)=extract(year from sysdate) group by userid) as lent, (select sum(lent_item) from ASSETMANAGEMENT_TRANSACTION where TRANSACTION_TYPE='money' and touser=:p_user and STATUS='open' and extract(year from creation_date)=extract(year from sysdate) group by touser) as owe from assetmanagement_transaction where userid=:p_user group by userid]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="Userid"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Precision="20"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="USERID"
+    Expression="USERID"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Lent"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="LENT"
+    Expression="LENT"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Owe"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="OWE"
+    Expression="OWE"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+</ViewObject>

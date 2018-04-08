@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.56.60" id="testDisplayPageDef"
+                Package="oracle.project.AssetManagement.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="YearlyAnalyticsV1" RangeSize="25"
+              DataControl="AssetManagementAM1DataControl"
+              id="YearlyAnalyticsV1Iterator"/>
+    <searchRegion Binds="YearlyAnalyticsV1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="YearlyAnalyticsV1Query"/>
+    <iterator Binds="YearlyAnalyticsLentV1" RangeSize="25"
+              DataControl="AssetManagementAM1DataControl"
+              id="YearlyAnalyticsLentV1Iterator"/>
+    <iterator Binds="YearlyAnalyticsDebtV1" RangeSize="25"
+              DataControl="AssetManagementAM1DataControl"
+              id="YearlyAnalyticsDebtV1Iterator"/>
+    <iterator Binds="YearlyAnalyticsBookLV1" RangeSize="25"
+              DataControl="AssetManagementAM1DataControl"
+              id="YearlyAnalyticsBookLV1Iterator"/>
+    <iterator Binds="YearlyAnalyticsBookOV1" RangeSize="25"
+              DataControl="AssetManagementAM1DataControl"
+              id="YearlyAnalyticsBookOV1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="YearlyAnalyticsV1Iterator" id="YearlyAnalyticsV1">
+      <nodeDefinition DefName="oracle.project.AssetManagement.uiview.YearlyAnalyticsVVO"
+                      Name="YearlyAnalyticsV10">
+        <AttrNames>
+          <Item Value="TransactionId"/>
+          <Item Value="TransactionType"/>
+          <Item Value="Userid"/>
+          <Item Value="DueDate"/>
+          <Item Value="LentItem"/>
+          <Item Value="CreationDate"/>
+          <Item Value="Touser"/>
+          <Item Value="Quantity"/>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="YearlyAnalyticsLentV1Iterator" id="Userid">
+      <AttrNames>
+        <Item Value="Userid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="YearlyAnalyticsLentV1Iterator"
+                     id="SumLentItem">
+      <AttrNames>
+        <Item Value="SumLentItem"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="YearlyAnalyticsDebtV1Iterator" id="Touser">
+      <AttrNames>
+        <Item Value="Touser"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="YearlyAnalyticsDebtV1Iterator"
+                     id="SumLentItem1">
+      <AttrNames>
+        <Item Value="SumLentItem"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="YearlyAnalyticsBookLV1Iterator"
+          id="YearlyAnalyticsBookLV1">
+      <nodeDefinition DefName="oracle.project.AssetManagement.uiview.YearlyAnalyticsBookLVVO"
+                      Name="YearlyAnalyticsBookLV10">
+        <AttrNames>
+          <Item Value="Userid"/>
+          <Item Value="LentItem"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="YearlyAnalyticsBookOV1Iterator"
+          id="YearlyAnalyticsBookOV1">
+      <nodeDefinition DefName="oracle.project.AssetManagement.uiview.YearlyAnalyticsBookOVVO"
+                      Name="YearlyAnalyticsBookOV10">
+        <AttrNames>
+          <Item Value="Touser"/>
+          <Item Value="LentItem"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

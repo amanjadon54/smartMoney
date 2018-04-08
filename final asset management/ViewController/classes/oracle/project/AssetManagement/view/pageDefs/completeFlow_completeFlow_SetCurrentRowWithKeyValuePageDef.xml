@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.56.60"
+                id="completeFlow_completeFlow_SetCurrentRowWithKeyValuePageDef"
+                Package="oracle.project.AssetManagement.view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="UserUpdatable2" RangeSize="25"
+              DataControl="AssetManagementAM1DataControl"
+              id="UserUpdatable2Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="UserUpdatable2Iterator" id="setCurrentRowWithKeyValue"
+            RequiresUpdateModel="false" Action="setCurrentRowWithKey"
+            InstanceName="AssetManagementAM1DataControl.UserUpdatable2"
+            DataControl="AssetManagementAM1DataControl">
+      <NamedData NDName="rowKey" NDValue="{pageFlowScope.userId}"
+                 NDType="java.lang.String" NDOption="3"/>
+    </action>
+  </bindings>
+</pageDefinition>

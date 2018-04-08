@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AssetManagementAM1"
+  Version="11.1.1.56.60"
+  ClearCacheOnRollback="true"
+  ComponentClass="oracle.project.AssetManagement.uiview.AssetManagementAM1Impl"
+  DefClass="oracle.project.AssetManagement.uiview.AssetManagementAM1DefImpl">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+    <Attr Name="_isDefCodegen" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="UserObject1"
+    ViewObjectName="oracle.project.AssetManagement.uiview.UserObjectVO"/>
+  <ViewUsage
+    Name="UserUpdatable1"
+    ViewObjectName="oracle.project.AssetManagement.uiview.UserUpdatableVO"/>
+  <ViewUsage
+    Name="Transaction1"
+    ViewObjectName="oracle.project.AssetManagement.uiview.TransactionVO"/>
+  <ViewUsage
+    Name="UserUpdatable2"
+    ViewObjectName="oracle.project.AssetManagement.uiview.UserUpdatableVO"/>
+  <ViewUsage
+    Name="Transaction2"
+    ViewObjectName="oracle.project.AssetManagement.uiview.TransactionVO"/>
+  <ViewUsage
+    Name="Question1"
+    ViewObjectName="oracle.project.AssetManagement.uiview.QuestionVO"/>
+  <ViewUsage
+    Name="Monthly1"
+    ViewObjectName="oracle.project.AssetManagement.uiview.MonthlyVO"/>
+  <ViewUsage
+    Name="LovStatus1"
+    ViewObjectName="oracle.project.AssetManagement.uiview.LovStatusVO"/>
+  <ViewUsage
+    Name="LovTypeV1"
+    ViewObjectName="oracle.project.AssetManagement.uiview.LovTypeVVO"/>
+  <ViewUsage
+    Name="ViewObj1"
+    ViewObjectName="oracle.project.AssetManagement.uiview.ViewObjVO"/>
+  <ViewUsage
+    Name="MonthlyAnalyticsV1"
+    ViewObjectName="oracle.project.AssetManagement.uiview.MonthlyAnalyticsVVO"/>
+  <ViewUsage
+    Name="MonthlyAnalyticsDebtV1"
+    ViewObjectName="oracle.project.AssetManagement.uiview.MonthlyAnalyticsDebtVVO"/>
+  <ViewUsage
+    Name="MonthlyAnalticsBookOV1"
+    ViewObjectName="oracle.project.AssetManagement.uiview.MonthlyAnalticsBookOVVO"/>
+  <ViewUsage
+    Name="MonthlyAnalyticsBookLV1"
+    ViewObjectName="oracle.project.AssetManagement.uiview.MonthlyAnalyticsBookLVVO"/>
+  <ViewUsage
+    Name="YearlyAnalyticsDebtV1"
+    ViewObjectName="oracle.project.AssetManagement.uiview.YearlyAnalyticsDebtVVO"/>
+  <ViewUsage
+    Name="YearlyAnalyticsBookLV1"
+    ViewObjectName="oracle.project.AssetManagement.uiview.YearlyAnalyticsBookLVVO"/>
+  <ViewUsage
+    Name="YearlyAnalyticsBookOV1"
+    ViewObjectName="oracle.project.AssetManagement.uiview.YearlyAnalyticsBookOVVO"/>
+  <ViewUsage
+    Name="YearlyAnalyticsLentV1"
+    ViewObjectName="oracle.project.AssetManagement.uiview.YearlyAnalyticsLentVVO"/>
+  <ViewUsage
+    Name="YearlyAnalyticsV1"
+    ViewObjectName="oracle.project.AssetManagement.uiview.YearlyAnalyticsVVO"/>
+  <ViewUsage
+    Name="MonthsOFYear1"
+    ViewObjectName="oracle.project.AssetManagement.uiview.MonthsOFYearVO"/>
+  <ViewUsage
+    Name="MonthlyAnalyticsNewV1"
+    ViewObjectName="oracle.project.AssetManagement.uiview.MonthlyAnalyticsNewVVO"/>
+  <ViewUsage
+    Name="YearlyChartV1"
+    ViewObjectName="oracle.project.AssetManagement.uiview.YearlyChartVVO"/>
+  <ViewLinkUsage
+    Name="TransactionVL"
+    Version="11.1.1.56.60"
+    ViewLinkObjectName="oracle.project.AssetManagement.uiview.TransactionVL"
+    SrcViewUsageName="oracle.project.AssetManagement.uiview.AssetManagementAM1.UserUpdatable2"
+    DstViewUsageName="oracle.project.AssetManagement.uiview.AssetManagementAM1.Transaction2"
+    Reversed="false"/>
+</AppModule>

@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="UserEO"
+  Version="11.1.1.56.60"
+  DBObjectType="table"
+  DBObjectName="ASSETMANAGEMENT_USER"
+  AliasName="UserEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  <DesignTime>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="Userid"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="USERID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ASSETMANAGEMENT_USER"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <validation:PreDefinedValidationBean
+      Name="Userid_Rule_1"
+      ResId="oracle.project.AssetManagement.entity.UserEO.Userid_Rule_1"
+      ValName="Mandatory"
+      Subtype="MANDATORY"/>
+    <validation:RegExpValidationBean
+      Name="Userid_Rule_0"
+      ResId="oracle.project.AssetManagement.entity.UserEO.Userid_Rule_0"
+      OnAttribute="Userid"
+      Pattern="[a-z0-9]{1,10}"
+      Inverse="false">
+      <validation:ResExpressions>
+        <validation:Expression
+          Name="0"><![CDATA[newValue]]></validation:Expression>
+      </validation:ResExpressions>
+    </validation:RegExpValidationBean>
+  </Attribute>
+  <Attribute
+    Name="Firstname"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="FIRSTNAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ASSETMANAGEMENT_USER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Lastname"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="LASTNAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ASSETMANAGEMENT_USER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Phone"
+    Precision="10"
+    Scale="0"
+    ColumnName="PHONE"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ASSETMANAGEMENT_USER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+    <validation:RegExpValidationBean
+      Name="Phone_Rule_0"
+      ResId="oracle.project.AssetManagement.entity.UserEO.Phone_Rule_0"
+      OnAttribute="Phone"
+      Pattern="^[2-9]{1}[0-9]{9}$"
+      Inverse="false">
+      <validation:ResExpressions>
+        <validation:Expression
+          Name="0"><![CDATA[newValue]]></validation:Expression>
+      </validation:ResExpressions>
+    </validation:RegExpValidationBean>
+  </Attribute>
+  <Attribute
+    Name="Address"
+    Precision="50"
+    ColumnName="ADDRESS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ASSETMANAGEMENT_USER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Email"
+    Precision="50"
+    ColumnName="EMAIL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ASSETMANAGEMENT_USER"
+    IsNotNull="true"
+    IsUnique="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <validation:RegExpValidationBean
+      Name="Email_Rule_0"
+      ResId="oracle.project.AssetManagement.entity.UserEO.Email_Rule_0"
+      OnAttribute="Email"
+      Pattern="[aA-zZ0-9._%+-]+@[aA-zZ0-9.-]+\.[aA-zZ]{2,4}"
+      Inverse="false">
+      <validation:ResExpressions>
+        <validation:Expression
+          Name="0"><![CDATA[newValue]]></validation:Expression>
+      </validation:ResExpressions>
+    </validation:RegExpValidationBean>
+  </Attribute>
+  <Attribute
+    Name="Password"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="PASSWORD"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ASSETMANAGEMENT_USER">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <validation:RegExpValidationBean
+      Name="Password_Rule_0"
+      ResId="oracle.project.AssetManagement.entity.UserEO.Password_Rule_0"
+      OnAttribute="Password"
+      Pattern="^(?=.*[A-Z])(?=.*[0-9])[A-Za-z0-9!&quot;#$%&amp;'()*+,\-./:;&lt;=>?@\[\]^_`{|}~\\£€]{8}$"
+      Inverse="false"/>
+  </Attribute>
+  <Attribute
+    Name="Question"
+    Precision="100"
+    ColumnName="QUESTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ASSETMANAGEMENT_USER"
+    IsNotNull="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Answer"
+    Precision="100"
+    ColumnName="ANSWER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ASSETMANAGEMENT_USER"
+    IsNotNull="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ConfirmPassword"
+    Precision="20"
+    ColumnName="CONFIRM_PASSWORD"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ASSETMANAGEMENT_USER"
+    IsNotNull="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <validation:CompareValidationBean
+      Name="ConfirmPassword_Rule_0"
+      ResId="oracle.project.AssetManagement.entity.UserEO.ConfirmPassword_Rule_0"
+      OnAttribute="ConfirmPassword"
+      OperandType="JBO"
+      Inverse="false"
+      CompareType="EQUALTO"
+      CompareValue="oracle.project.AssetManagement.uiview.UserUpdatableVO.Password"/>
+  </Attribute>
+  <AccessorAttribute
+    Name="Transaction"
+    Association="oracle.project.AssetManagement.entity.AssetmanagementTransactiFk2Assoc"
+    AssociationEnd="oracle.project.AssetManagement.entity.AssetmanagementTransactiFk2Assoc.Transaction"
+    AssociationOtherEnd="oracle.project.AssetManagement.entity.AssetmanagementTransactiFk2Assoc.User"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="AssetManagemenUserPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="ASSET_MANAGEMEN_USER_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.project.AssetManagement.entity.UserEO.Userid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AssetmanagementUserAnswerCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ASSETMANAGEMENT_USER_ANSWER_CH"/>
+      <Attr Name="_checkCondition" Value='"ANSWER" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.project.AssetManagement.entity.UserEO.Answer"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AssetmanagementUserConfirmPasswordCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ASSETMANAGEMENT_USER_CONFIRM_P"/>
+      <Attr Name="_checkCondition" Value='"CONFIRM_PASSWORD" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="oracle.project.AssetManagement.entity.UserEO.ConfirmPassword"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AssetmanagementUserEmailCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ASSETMANAGEMENT_USER_EMAIL_CHE"/>
+      <Attr Name="_checkCondition" Value='"EMAIL" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.project.AssetManagement.entity.UserEO.Email"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AssetmanagementUserQuestionCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ASSETMANAGEMENT_USER_QUESTION_"/>
+      <Attr Name="_checkCondition" Value='"QUESTION" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.project.AssetManagement.entity.UserEO.Question"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007588">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007588"/>
+      <Attr Name="_checkCondition" Value='"USERID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.project.AssetManagement.entity.UserEO.Userid"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007589">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007589"/>
+      <Attr Name="_checkCondition" Value='"FIRSTNAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.project.AssetManagement.entity.UserEO.Firstname"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007590">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007590"/>
+      <Attr Name="_checkCondition" Value='"LASTNAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.project.AssetManagement.entity.UserEO.Lastname"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC007592">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007592"/>
+      <Attr Name="_checkCondition" Value='"PASSWORD" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="oracle.project.AssetManagement.entity.UserEO.Password"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="oracle.project.AssetManagement.ModelBundle"/>
+  </ResourceBundle>
+</Entity>

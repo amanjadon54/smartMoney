@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:table value="#{bindings.MonthlyAnalyticsNewV1.collectionModel}" var="row"
+            rows="#{bindings.MonthlyAnalyticsNewV1.rangeSize}"
+            emptyText="#{bindings.MonthlyAnalyticsNewV1.viewable ? 'No data to display.' : 'Access Denied.'}"
+            fetchSize="#{bindings.MonthlyAnalyticsNewV1.rangeSize}"
+            rowBandingInterval="0" id="t1">
+    <af:column sortProperty="TransactionId" sortable="false"
+               headerText="#{bindings.MonthlyAnalyticsNewV1.hints.TransactionId.label}"
+               id="c1">
+      <af:outputText value="#{row.TransactionId}" id="ot3"/>
+    </af:column>
+    <af:column sortProperty="TransactionType" sortable="false"
+               headerText="#{bindings.MonthlyAnalyticsNewV1.hints.TransactionType.label}"
+               id="c2">
+      <af:outputText value="#{row.TransactionType}" id="ot8"/>
+    </af:column>
+    <af:column sortProperty="Userid" sortable="false"
+               headerText="#{bindings.MonthlyAnalyticsNewV1.hints.Userid.label}"
+               id="c3">
+      <af:outputText value="#{row.Userid}" id="ot5"/>
+    </af:column>
+    <af:column sortProperty="DueDate" sortable="false"
+               headerText="#{bindings.MonthlyAnalyticsNewV1.hints.DueDate.label}"
+               id="c9">
+      <af:outputText value="#{row.DueDate}" id="ot1">
+        <af:convertDateTime pattern="#{bindings.MonthlyAnalyticsNewV1.hints.DueDate.format}"/>
+      </af:outputText>
+    </af:column>
+    <af:column sortProperty="LentItem" sortable="false"
+               headerText="#{bindings.MonthlyAnalyticsNewV1.hints.LentItem.label}"
+               id="c4">
+      <af:outputText value="#{row.LentItem}" id="ot7"/>
+    </af:column>
+    <af:column sortProperty="CreationDate" sortable="false"
+               headerText="#{bindings.MonthlyAnalyticsNewV1.hints.CreationDate.label}"
+               id="c5">
+      <af:outputText value="#{row.CreationDate}" id="ot2">
+        <af:convertDateTime pattern="#{bindings.MonthlyAnalyticsNewV1.hints.CreationDate.format}"/>
+      </af:outputText>
+    </af:column>
+    <af:column sortProperty="Touser" sortable="false"
+               headerText="#{bindings.MonthlyAnalyticsNewV1.hints.Touser.label}"
+               id="c7">
+      <af:outputText value="#{row.Touser}" id="ot4"/>
+    </af:column>
+    <af:column sortProperty="Quantity" sortable="false"
+               headerText="#{bindings.MonthlyAnalyticsNewV1.hints.Quantity.label}"
+               id="c6">
+      <af:outputText value="#{row.Quantity}" id="ot6"/>
+    </af:column>
+    <af:column sortProperty="Status" sortable="false"
+               headerText="#{bindings.MonthlyAnalyticsNewV1.hints.Status.label}"
+               id="c8">
+      <af:outputText value="#{row.Status}" id="ot9"/>
+    </af:column>
+  </af:table>
+</jsp:root>

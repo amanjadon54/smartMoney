@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.56.60" id="createTransactionPagePageDef"
+                Package="oracle.project.AssetManagement.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Transaction2" RangeSize="25"
+              DataControl="AssetManagementAM1DataControl"
+              id="Transaction2Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="Transaction2Iterator" id="Touser">
+      <AttrNames>
+        <Item Value="Touser"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="Transaction2Iterator" StaticList="false"
+          Uses="LOV_TransactionType" id="TransactionType"
+          DTSupportsMRU="false"/>
+    <attributeValues IterBinding="Transaction2Iterator" id="DueDate">
+      <AttrNames>
+        <Item Value="DueDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Transaction2Iterator" id="LentItem">
+      <AttrNames>
+        <Item Value="LentItem"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="Transaction2Iterator" StaticList="false"
+          Uses="LOV_Status" id="Status" DTSupportsMRU="false"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="AssetManagementAM1DataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction"
+            DataControl="AssetManagementAM1DataControl"/>
+  </bindings>
+</pageDefinition>

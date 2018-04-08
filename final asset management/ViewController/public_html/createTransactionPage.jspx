@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1"
+                 inlineStyle='background-color:Teal; background-image:none;'>
+               <af:resource type="css">  
+                 
+                 .x4z{
+                 font-size: 13px;
+                  color: darkblue;}
+                  </af:resource>
+                 
+      <af:messages id="m1"/>
+      <af:form id="f1"
+               inlineStyle='background-image:none;'>
+        <af:panelFormLayout id="pfl1" inlineStyle="width:303px;">
+          <af:spacer width="10" height="20" id="s4"/>
+          <af:inputText value="#{bindings.Touser.inputValue}"
+                        label="Lender"
+                        columns="#{bindings.Touser.hints.displayWidth}"
+                        maximumLength="#{bindings.Touser.hints.precision}"
+                        shortDesc="#{bindings.Touser.hints.tooltip}" id="it3"
+                        inlineStyle="color:Green;" required="true">
+            <f:validator binding="#{bindings.Touser.validator}"/>
+          </af:inputText>
+          <af:spacer width="10" height="10" id="s5"/>
+          <af:selectOneChoice value="#{bindings.TransactionType.inputValue}"
+                              label="#{bindings.TransactionType.label}"
+                              shortDesc="#{bindings.TransactionType.hints.tooltip}"
+                              id="soc2" required="true">
+            <f:selectItems value="#{bindings.TransactionType.items}" id="si2"/>
+          </af:selectOneChoice>
+          <af:spacer width="10" height="10" id="s6"/>
+          <af:inputDate value="#{bindings.DueDate.inputValue}"
+                        label="#{bindings.DueDate.hints.label}"
+                        shortDesc="#{bindings.DueDate.hints.tooltip}" id="id1"
+                        required="true">
+            <f:validator binding="#{bindings.DueDate.validator}"/>
+            <af:convertDateTime pattern="#{bindings.DueDate.format}"/>
+          </af:inputDate>
+          <af:spacer width="10" height="10" id="s7"/>
+          <af:inputText value="#{bindings.LentItem.inputValue}"
+                        label="#{bindings.LentItem.hints.label}"
+                        columns="#{bindings.LentItem.hints.displayWidth}"
+                        maximumLength="#{bindings.LentItem.hints.precision}"
+                        shortDesc="#{bindings.LentItem.hints.tooltip}" id="it2"
+                        required="true">
+            <f:validator binding="#{bindings.LentItem.validator}"/>
+          </af:inputText>
+          <af:spacer width="10" height="10" id="s8"/>
+          <af:selectOneChoice value="#{bindings.Status.inputValue}"
+                              label="#{bindings.Status.label}"
+                              shortDesc="#{bindings.Status.hints.tooltip}"
+                              id="soc1" required="true">
+            <f:selectItems value="#{bindings.Status.items}" id="si1"/>
+          </af:selectOneChoice>
+          <af:spacer width="10" height="10" id="s3"/>
+          <af:panelGroupLayout id="pgl1">
+            <af:commandImageLink actionListener="#{bindings.Commit.execute}"
+                                 disabled="#{!bindings.Commit.enabled}"
+                                 id="cil1" icon="/save_editable.png"
+                                 action="back"
+                                 inlineStyle="background-color:Green; color:Fuchsia;"/>
+            <af:spacer width="10" height="10" id="s1"/>
+            <af:spacer width="10" height="10" id="s2"/>
+            <af:commandImageLink actionListener="#{bindings.Rollback.execute}"
+                                 disabled="#{!bindings.Rollback.enabled}"
+                                 immediate="true" id="cil2"
+                                 icon="/cancel_edit.png" action="back"
+                                 inlineStyle="color:Green;">
+              <af:resetActionListener/>
+            </af:commandImageLink>
+          </af:panelGroupLayout>
+        </af:panelFormLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

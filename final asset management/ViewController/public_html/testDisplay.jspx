@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelSplitter id="ps1" splitterPosition="283">
+          <f:facet name="first">
+            <af:panelSplitter id="ps3" orientation="vertical"
+                              splitterPosition="102">
+              <f:facet name="first">
+                <af:panelFormLayout id="pfl1">
+                  <af:inputText value="#{bindings.Userid.inputValue}"
+                                label="#{bindings.Userid.hints.label}"
+                                required="#{bindings.Userid.hints.mandatory}"
+                                columns="#{bindings.Userid.hints.displayWidth}"
+                                maximumLength="#{bindings.Userid.hints.precision}"
+                                shortDesc="#{bindings.Userid.hints.tooltip}"
+                                id="it1">
+                    <f:validator binding="#{bindings.Userid.validator}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.SumLentItem.inputValue}"
+                                label="#{bindings.SumLentItem.hints.label}"
+                                required="#{bindings.SumLentItem.hints.mandatory}"
+                                columns="#{bindings.SumLentItem.hints.displayWidth}"
+                                maximumLength="#{bindings.SumLentItem.hints.precision}"
+                                shortDesc="#{bindings.SumLentItem.hints.tooltip}"
+                                id="it2">
+                    <f:validator binding="#{bindings.SumLentItem.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.SumLentItem.format}"/>
+                  </af:inputText>
+                </af:panelFormLayout>
+              </f:facet>
+              <f:facet name="second">
+                <af:table value="#{bindings.YearlyAnalyticsV1.collectionModel}"
+                          var="row"
+                          rows="#{bindings.YearlyAnalyticsV1.rangeSize}"
+                          emptyText="#{bindings.YearlyAnalyticsV1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          fetchSize="#{bindings.YearlyAnalyticsV1.rangeSize}"
+                          rowBandingInterval="0"
+                          filterModel="#{bindings.YearlyAnalyticsV1Query.queryDescriptor}"
+                          queryListener="#{bindings.YearlyAnalyticsV1Query.processQuery}"
+                          filterVisible="true" varStatus="vs"
+                          selectedRowKeys="#{bindings.YearlyAnalyticsV1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.YearlyAnalyticsV1.collectionModel.makeCurrent}"
+                          rowSelection="single" id="t1">
+                  <af:column sortProperty="TransactionId" filterable="true"
+                             sortable="false"
+                             headerText="#{bindings.YearlyAnalyticsV1.hints.TransactionId.label}"
+                             id="c8">
+                    <af:outputText value="#{row.TransactionId}" id="ot8"/>
+                  </af:column>
+                  <af:column sortProperty="TransactionType" filterable="true"
+                             sortable="false"
+                             headerText="#{bindings.YearlyAnalyticsV1.hints.TransactionType.label}"
+                             id="c3">
+                    <af:outputText value="#{row.TransactionType}" id="ot2"/>
+                  </af:column>
+                  <af:column sortProperty="Userid" filterable="true"
+                             sortable="false"
+                             headerText="#{bindings.YearlyAnalyticsV1.hints.Userid.label}"
+                             id="c1">
+                    <af:outputText value="#{row.Userid}" id="ot1"/>
+                  </af:column>
+                  <af:column sortProperty="DueDate" filterable="true"
+                             sortable="false"
+                             headerText="#{bindings.YearlyAnalyticsV1.hints.DueDate.label}"
+                             id="c7">
+                    <f:facet name="filter">
+                      <af:inputDate value="#{vs.filterCriteria.DueDate}"
+                                    id="id2"/>
+                    </f:facet>
+                    <af:outputText value="#{row.DueDate}" id="ot6">
+                      <af:convertDateTime pattern="#{bindings.YearlyAnalyticsV1.hints.DueDate.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="LentItem" filterable="true"
+                             sortable="false"
+                             headerText="#{bindings.YearlyAnalyticsV1.hints.LentItem.label}"
+                             id="c5">
+                    <af:outputText value="#{row.LentItem}" id="ot4"/>
+                  </af:column>
+                  <af:column sortProperty="CreationDate" filterable="true"
+                             sortable="false"
+                             headerText="#{bindings.YearlyAnalyticsV1.hints.CreationDate.label}"
+                             id="c4">
+                    <f:facet name="filter">
+                      <af:inputDate value="#{vs.filterCriteria.CreationDate}"
+                                    id="id1"/>
+                    </f:facet>
+                    <af:outputText value="#{row.CreationDate}" id="ot9">
+                      <af:convertDateTime pattern="#{bindings.YearlyAnalyticsV1.hints.CreationDate.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="Touser" filterable="true"
+                             sortable="false"
+                             headerText="#{bindings.YearlyAnalyticsV1.hints.Touser.label}"
+                             id="c2">
+                    <af:outputText value="#{row.Touser}" id="ot7"/>
+                  </af:column>
+                  <af:column sortProperty="Quantity" filterable="true"
+                             sortable="false"
+                             headerText="#{bindings.YearlyAnalyticsV1.hints.Quantity.label}"
+                             id="c9">
+                    <af:outputText value="#{row.Quantity}" id="ot3"/>
+                  </af:column>
+                  <af:column sortProperty="Status" filterable="true"
+                             sortable="false"
+                             headerText="#{bindings.YearlyAnalyticsV1.hints.Status.label}"
+                             id="c6">
+                    <af:outputText value="#{row.Status}" id="ot5"/>
+                  </af:column>
+                </af:table>
+              </f:facet>
+            </af:panelSplitter>
+          </f:facet>
+          <f:facet name="second">
+            <af:panelSplitter id="ps2" orientation="vertical"
+                              splitterPosition="99">
+              <f:facet name="first">
+                <af:panelFormLayout id="pfl2">
+                  <af:inputText value="#{bindings.Touser.inputValue}"
+                                label="#{bindings.Touser.hints.label}"
+                                required="#{bindings.Touser.hints.mandatory}"
+                                columns="#{bindings.Touser.hints.displayWidth}"
+                                maximumLength="#{bindings.Touser.hints.precision}"
+                                shortDesc="#{bindings.Touser.hints.tooltip}"
+                                id="it4">
+                    <f:validator binding="#{bindings.Touser.validator}"/>
+                  </af:inputText>
+                  <af:inputText value="#{bindings.SumLentItem1.inputValue}"
+                                label="#{bindings.SumLentItem1.hints.label}"
+                                required="#{bindings.SumLentItem1.hints.mandatory}"
+                                columns="#{bindings.SumLentItem1.hints.displayWidth}"
+                                maximumLength="#{bindings.SumLentItem1.hints.precision}"
+                                shortDesc="#{bindings.SumLentItem1.hints.tooltip}"
+                                id="it3">
+                    <f:validator binding="#{bindings.SumLentItem1.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.SumLentItem1.format}"/>
+                  </af:inputText>
+                </af:panelFormLayout>
+              </f:facet>
+              <f:facet name="second">
+                <af:panelSplitter id="ps4" orientation="vertical"
+                                  splitterPosition="170">
+                  <f:facet name="first">
+                    <af:table value="#{bindings.YearlyAnalyticsBookLV1.collectionModel}"
+                              var="row"
+                              rows="#{bindings.YearlyAnalyticsBookLV1.rangeSize}"
+                              emptyText="#{bindings.YearlyAnalyticsBookLV1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              fetchSize="#{bindings.YearlyAnalyticsBookLV1.rangeSize}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.YearlyAnalyticsBookLV1.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.YearlyAnalyticsBookLV1.collectionModel.makeCurrent}"
+                              rowSelection="single" id="t2">
+                      <af:column sortProperty="Userid" sortable="false"
+                                 headerText="#{bindings.YearlyAnalyticsBookLV1.hints.Userid.label}"
+                                 id="c10">
+                        <af:outputText value="#{row.Userid}" id="ot11"/>
+                      </af:column>
+                      <af:column sortProperty="LentItem" sortable="false"
+                                 headerText="#{bindings.YearlyAnalyticsBookLV1.hints.LentItem.label}"
+                                 id="c11">
+                        <af:outputText value="#{row.LentItem}" id="ot10"/>
+                      </af:column>
+                    </af:table>
+                  </f:facet>
+                  <f:facet name="second">
+                    <af:table value="#{bindings.YearlyAnalyticsBookOV1.collectionModel}"
+                              var="row"
+                              rows="#{bindings.YearlyAnalyticsBookOV1.rangeSize}"
+                              emptyText="#{bindings.YearlyAnalyticsBookOV1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              fetchSize="#{bindings.YearlyAnalyticsBookOV1.rangeSize}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.YearlyAnalyticsBookOV1.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.YearlyAnalyticsBookOV1.collectionModel.makeCurrent}"
+                              rowSelection="single" id="t3">
+                      <af:column sortProperty="Touser" sortable="false"
+                                 headerText="#{bindings.YearlyAnalyticsBookOV1.hints.Touser.label}"
+                                 id="c12">
+                        <af:outputText value="#{row.Touser}" id="ot13"/>
+                      </af:column>
+                      <af:column sortProperty="LentItem" sortable="false"
+                                 headerText="#{bindings.YearlyAnalyticsBookOV1.hints.LentItem.label}"
+                                 id="c13">
+                        <af:outputText value="#{row.LentItem}" id="ot12"/>
+                      </af:column>
+                    </af:table>
+                  </f:facet>
+                </af:panelSplitter>
+              </f:facet>
+            </af:panelSplitter>
+          </f:facet>
+        </af:panelSplitter>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

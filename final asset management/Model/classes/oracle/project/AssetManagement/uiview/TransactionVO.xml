@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TransactionVO"
+  Version="11.1.1.56.60"
+  SelectList="TransactionEO.CREATION_DATE, 
+       TransactionEO.DUE_DATE, 
+       TransactionEO.LENT_ITEM, 
+       TransactionEO.QUANTITY, 
+       TransactionEO.STATUS, 
+       TransactionEO.TOUSER, 
+       TransactionEO.TRANSACTION_ID, 
+       TransactionEO.TRANSACTION_TYPE, 
+       TransactionEO.USERID"
+  FromList="ASSETMANAGEMENT_TRANSACTION TransactionEO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <ViewAccessor
+    Name="TransactionVO1"
+    ViewObjectName="oracle.project.AssetManagement.uiview.TransactionVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="LovStatusVO1"
+    ViewObjectName="oracle.project.AssetManagement.uiview.LovStatusVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="LovTypeVVO1"
+    ViewObjectName="oracle.project.AssetManagement.uiview.LovTypeVVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Status"
+    ListVOName="LovStatusVO1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Status"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Status"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Status"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_TransactionType"
+    ListVOName="LovTypeVVO1"
+    ListRangeSize="-1"
+    NullValueFlag="end"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="TransactionType"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Type"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Type"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="TransactionEO"
+    Entity="oracle.project.AssetManagement.entity.TransactionEO"/>
+  <ViewAttribute
+    Name="CreationDate"
+    PrecisionRule="true"
+    EntityAttrName="CreationDate"
+    EntityUsage="TransactionEO"
+    AliasName="CREATION_DATE"/>
+  <ViewAttribute
+    Name="DueDate"
+    PrecisionRule="true"
+    EntityAttrName="DueDate"
+    EntityUsage="TransactionEO"
+    AliasName="DUE_DATE"/>
+  <ViewAttribute
+    Name="LentItem"
+    PrecisionRule="true"
+    EntityAttrName="LentItem"
+    EntityUsage="TransactionEO"
+    AliasName="LENT_ITEM"/>
+  <ViewAttribute
+    Name="Quantity"
+    PrecisionRule="true"
+    EntityAttrName="Quantity"
+    EntityUsage="TransactionEO"
+    AliasName="QUANTITY"/>
+  <ViewAttribute
+    Name="Status"
+    PrecisionRule="true"
+    EntityAttrName="Status"
+    EntityUsage="TransactionEO"
+    AliasName="STATUS"
+    LOVName="LOV_Status">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Touser"
+    PrecisionRule="true"
+    EntityAttrName="Touser"
+    EntityUsage="TransactionEO"
+    AliasName="TOUSER"/>
+  <ViewAttribute
+    Name="TransactionId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TransactionId"
+    EntityUsage="TransactionEO"
+    AliasName="TRANSACTION_ID"/>
+  <ViewAttribute
+    Name="TransactionType"
+    PrecisionRule="true"
+    EntityAttrName="TransactionType"
+    EntityUsage="TransactionEO"
+    AliasName="TRANSACTION_TYPE"
+    LOVName="LOV_TransactionType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Userid"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Userid"
+    EntityUsage="TransactionEO"
+    AliasName="USERID"/>
+</ViewObject>

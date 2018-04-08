@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.56.60" id="view3PageDef"
+                Package="oracle.project.AssetManagement.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MonthlyAnalyticsNewV1" RangeSize="25"
+              DataControl="AssetManagementAM1DataControl"
+              id="MonthlyAnalyticsNewV1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="MonthlyAnalyticsNewV1Iterator"
+          id="MonthlyAnalyticsNewV1">
+      <nodeDefinition DefName="oracle.project.AssetManagement.uiview.MonthlyAnalyticsNewVVO"
+                      Name="MonthlyAnalyticsNewV10">
+        <AttrNames>
+          <Item Value="TransactionId"/>
+          <Item Value="TransactionType"/>
+          <Item Value="Userid"/>
+          <Item Value="DueDate"/>
+          <Item Value="LentItem"/>
+          <Item Value="CreationDate"/>
+          <Item Value="Touser"/>
+          <Item Value="Quantity"/>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
